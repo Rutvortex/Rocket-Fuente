@@ -10,13 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Navigation Interconnectivity
     const navMapping = {
+        // ID-based mapping (Higher priority)
+        'nav-dmi': 'DMI.html',
+        'nav-achievements': 'Archivenments.html',
+        'nav-rewards': 'Rewards.html',
+        'nav-shorts': 'ShortSeccion.html',
+        'nav-profile': 'Profile.html',
+        'nav-config': 'Config.html',
+        'nav-home': 'MainHub.html',
+        'nav-live': 'LivePlayer.html',
+        'nav-large': 'LargePlayer.html',
+
+        // Icon/Text-based fallback
         'home': 'MainHub.html',
         'hub': 'MainHub.html',
         'mail': 'DMI.html',
         'chat_bubble': 'DMI.html',
-        'groups': '#',
-        'play_circle': 'ShortSeccion.html', // Fixed mapping
-        'bookmark': '#',
+        'play_circle': 'ShortSeccion.html',
         'settings': 'Config.html',
         'person': 'Profile.html',
         'stars': 'Rewards.html',
@@ -30,27 +40,29 @@ document.addEventListener('DOMContentLoaded', () => {
         'live_tv': 'LivePlayer.html'
     };
 
-    document.querySelectorAll('.material-symbols-outlined, button, a, div[onclick]').forEach(el => {
+    // Priority 1: Direct ID Match
+    Object.keys(navMapping).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                window.location.href = navMapping[id];
+            });
+        }
+    });
+
+    // Priority 2: Class/Icon/Text Match (Fallback for elements without IDs)
+    document.querySelectorAll('.material-symbols-outlined, button:not([id]), a:not([id]), div[onclick]').forEach(el => {
         const text = el.textContent.trim().toLowerCase();
         const iconText = el.classList.contains('material-symbols-outlined') ? text : null;
 
-        // Match by icon text
-        if (iconText && navMapping[iconText]) {
+        if (iconText && navMapping[iconText] && navMapping[iconText] !== '#') {
             el.style.cursor = 'pointer';
-            el.addEventListener('click', () => {
-                if (navMapping[iconText] !== '#') {
-                    window.location.href = navMapping[iconText];
-                }
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                window.location.href = navMapping[iconText];
             });
-        }
-
-        // Match by element text content
-        for (const [key, path] of Object.entries(navMapping)) {
-            if (text.includes(key) && path !== '#') {
-                el.style.cursor = 'pointer';
-                el.addEventListener('click', () => window.location.href = path);
-                break;
-            }
         }
     });
 

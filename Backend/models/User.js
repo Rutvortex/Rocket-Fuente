@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema({
     badges: [{ type: String }],
     isBot: { type: Boolean, default: false },
     isAdmin: { type: Boolean, default: false },
+    followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     createdAt: { type: Date, default: Date.now }
 });
 

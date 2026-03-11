@@ -109,6 +109,54 @@ document.body.addEventListener('click', (e) => {
     }
 });
 
+// Navigation and Sidebar Logic
+const sidebarItems = {
+    'sidebar-home': () => window.location.reload(),
+    'sidebar-messaging': () => alert('Messaging feature coming soon!'),
+    'sidebar-groups': () => alert('Groups feature coming soon!'),
+    'sidebar-videos': () => window.location.href = 'ShortSeccion.html',
+    'sidebar-saved': () => alert('Saved posts coming soon!'),
+    // Your Pages
+    'nav-dmi': () => window.location.href = 'DMI.html',
+    'nav-achievements': () => window.location.href = 'Archivenments.html',
+    'nav-rewards': () => window.location.href = 'Rewards.html',
+    'nav-shorts': () => window.location.href = 'ShortSeccion.html',
+    'nav-profile': () => window.location.href = 'Profile.html'
+};
+
+Object.entries(sidebarItems).forEach(([id, handler]) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', handler);
+});
+
+// Header Buttons
+const notificationsBtn = document.getElementById('btn-notifications');
+const messagesBtn = document.getElementById('btn-messages');
+const settingsBtn = document.getElementById('btn-settings');
+
+if (notificationsBtn) notificationsBtn.addEventListener('click', () => alert('No new notifications'));
+if (messagesBtn) messagesBtn.addEventListener('click', () => alert('Messages coming soon!'));
+if (settingsBtn) settingsBtn.addEventListener('click', () => {
+    window.location.href = 'Config.html';
+});
+
+// Create Post Sidebar Button
+const createPostSidebarBtn = document.getElementById('btn-create-post-sidebar');
+if (createPostSidebarBtn) {
+    createPostSidebarBtn.addEventListener('click', () => {
+        document.getElementById('post-content')?.focus();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Upload Image Button
+const uploadImageBtn = document.getElementById('btn-upload-image');
+if (uploadImageBtn) {
+    uploadImageBtn.addEventListener('click', () => {
+        alert('Image upload feature is currently in development.');
+    });
+}
+
 // Search functionality
 const searchInput = document.querySelector('header input[placeholder="Search"]');
 if (searchInput) {
@@ -125,19 +173,6 @@ if (searchInput) {
         });
     });
 }
-
-// Notification and Chat buttons
-const headerButtons = document.querySelectorAll('header button');
-headerButtons.forEach(btn => {
-    const icon = btn.querySelector('.material-symbols-outlined');
-    if (icon) {
-        if (icon.textContent === 'notifications') {
-            btn.addEventListener('click', () => alert('No new notifications'));
-        } else if (icon.textContent === 'chat_bubble') {
-            btn.addEventListener('click', () => alert('Messages coming soon!'));
-        }
-    }
-});
 
 // Initial load
 fetchPosts();

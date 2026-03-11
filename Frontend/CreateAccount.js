@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sign In Modal Logic
     const signInModal = document.getElementById('signin-modal');
-    const signInBtn = document.querySelector('header button.font-semibold');
+    const headerSignInBtn = document.getElementById('header-signin-btn');
     const closeSignIn = document.getElementById('close-signin');
     const switchToSignup = document.getElementById('switch-to-signup');
 
-    if (signInBtn && signInModal) {
-        signInBtn.addEventListener('click', () => {
+    if (headerSignInBtn && signInModal) {
+        headerSignInBtn.addEventListener('click', () => {
             signInModal.classList.remove('hidden');
         });
     }
@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close button
-    const closeBtn = document.querySelector('header button.bg-slate-200');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
+    // Header Close button
+    const headerCloseBtn = document.getElementById('header-close-btn');
+    if (headerCloseBtn) {
+        headerCloseBtn.addEventListener('click', () => {
             window.location.href = 'MainHub.html';
         });
     }
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     alert('Registration successful!');
                     localStorage.setItem('user', JSON.stringify({ id: data.userId, username }));
-                    window.location.href = 'MainHub.html'; // Changed to relative for consistency
+                    window.location.href = 'MainHub.html';
                 } else {
                     alert('Error: ' + (data.message || 'Unknown error'));
                 }

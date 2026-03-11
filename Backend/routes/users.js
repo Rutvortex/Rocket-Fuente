@@ -41,4 +41,36 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Follow a user
+router.post('/:id/follow', async (req, res) => {
+    try {
+        const { followerId } = req.body;
+        const targetId = req.params.id;
+
+        if (followerId === targetId) return res.status(400).json({ message: 'Cannot follow yourself' });
+
+        await User.findByIdAndUpdate(targetId, { $addToSet: { followers: followerId } });
+        await User.findByIdAndUpdate(followerId, { $addToSet: { following: targetId } });
+
+        res.status(200).json({ message: 'Followed successfully' });
+    } catch (err) {
+        res.status(500).json({ message: 'Server error', error: err.message });
+    }
+});
+
+// Unfollow a user
+router.post('/:id/unfollow', async (req, res) => {
+    try {
+        const { followerId } = req.body;
+        const targetId = req.params.id;
+
+        await User.findByIdAndUpdate(targetId, { $pull: { followers: followerId } });
+        await User.findByIdAndUpdate(followerId, { $pull: { following: targetId } });
+
+        res.status(200).json({ message: 'Unfollowed successfully' });
+    } catch (err) {
+        res.status(500).json({ message: 'Server error', error: err.message });
+    }
+});
+
 module.exports = router;

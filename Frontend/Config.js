@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (fontSizeHandle) fontSizeHandle.style.left = percent + '%';
     }
 
-    // Save Preference Button (Optional logic if needed)
-    const saveBtn = document.querySelector('button.bg-zinc-900.dark\:bg-zinc-100');
+    // Save Preferences
+    const saveBtn = document.getElementById('btn-save-preferences');
     if (saveBtn) {
         saveBtn.addEventListener('click', () => {
             alert('Preferences saved successfully!');
@@ -65,19 +65,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Security buttons
-    const enable2faBtn = document.querySelector('button:contains("Enable")'); // This selector might be tricky, let's use textContent
-    const configButtons = document.querySelectorAll('main button');
-    configButtons.forEach(btn => {
-        if (btn.textContent.trim() === 'Enable') {
-            btn.addEventListener('click', () => alert('Two-Factor Authentication setup started...'));
-        } else if (btn.textContent.trim() === 'Change Password') {
-            btn.addEventListener('click', () => alert('Password change interface would open here.'));
-        } else if (btn.textContent.trim() === 'Discard Changes') {
-            btn.addEventListener('click', () => {
-                if (confirm('Are you sure you want to discard changes?')) {
-                    window.location.reload();
-                }
+    const enable2faBtn = document.getElementById('btn-enable-2fa');
+    const changePasswordBtn = document.getElementById('btn-change-password');
+    const discardBtn = document.getElementById('btn-discard-changes');
+
+    if (enable2faBtn) {
+        enable2faBtn.addEventListener('click', () => alert('Two-Factor Authentication setup started...'));
+    }
+    if (changePasswordBtn) {
+        changePasswordBtn.addEventListener('click', () => alert('Password change interface would open here.'));
+    }
+    if (discardBtn) {
+        discardBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to discard changes?')) {
+                window.location.reload();
+            }
+        });
+    }
+
+    // Search settings filtering
+    const searchInput = document.getElementById('search-settings-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('main section');
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                section.style.display = text.includes(query) ? 'flex' : 'none';
             });
-        }
-    });
+        });
+    }
 });

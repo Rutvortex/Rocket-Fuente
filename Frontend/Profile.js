@@ -3,51 +3,72 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('nav button');
-    const sections = document.querySelectorAll('main > div > div, aside > div'); // Simplified selector for sections
+    // Tab switching logic
+    const tabIds = ['tab-posts', 'tab-about', 'tab-achievements'];
+    const tabs = tabIds.map(id => document.getElementById(id)).filter(el => el);
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            // Update active tab style
             tabs.forEach(t => {
-                t.classList.remove('border-b-2', 'border-white', 'text-white');
-                t.classList.add('text-[#A0A0A0]');
+                t.classList.remove('border-b-2', 'border-white', 'text-white', 'font-bold');
+                t.classList.add('text-[#A0A0A0]', 'font-medium');
             });
-            tab.classList.add('border-b-2', 'border-white', 'text-white');
-            tab.classList.remove('text-[#A0A0A0]');
+            tab.classList.add('border-b-2', 'border-white', 'text-white', 'font-bold');
+            tab.classList.remove('text-[#A0A0A0]', 'font-medium');
 
-            const tabName = tab.textContent.trim().toLowerCase();
-            if (tabName === 'yo') {
-                alert('Showing Posts section');
-                // Normally you would filter elements here
-            } else if (tabName === 'acerca de mí') {
-                alert('Showing About section');
-            } else if (tabName === 'logros') {
+            const id = tab.id;
+            if (id === 'tab-posts') {
+                console.log('Showing Posts');
+            } else if (id === 'tab-about') {
+                console.log('Showing About');
+            } else if (id === 'tab-achievements') {
                 window.location.href = 'Archivenments.html';
             }
         });
     });
 
-    // Profile buttons
-    const profileButtons = document.querySelectorAll('main section button');
-    profileButtons.forEach(btn => {
-        if (btn.textContent.trim() === 'Seguír' || btn.textContent.trim() === 'Seguir') {
-            btn.addEventListener('click', () => {
-                const isFollowing = btn.getAttribute('data-following') === 'true';
-                if (isFollowing) {
-                    btn.textContent = 'Seguir';
-                    btn.classList.remove('bg-slate-200');
-                    btn.classList.add('bg-white');
-                    btn.setAttribute('data-following', 'false');
-                } else {
-                    btn.textContent = 'Siguiendo';
-                    btn.classList.toggle('bg-white');
-                    btn.classList.add('bg-slate-200');
-                    btn.setAttribute('data-following', 'true');
-                }
-            });
-        } else if (btn.textContent.trim() === 'Mensaje') {
-            btn.addEventListener('click', () => alert('Direct messages not yet available'));
-        }
-    });
+    // Profile Actions
+    const followBtn = document.getElementById('btn-follow-profile');
+    const messageBtn = document.getElementById('btn-message-profile');
+    const moreBtn = document.getElementById('btn-more-options-profile');
+
+    if (followBtn) {
+        followBtn.addEventListener('click', () => {
+            const isFollowing = followBtn.getAttribute('data-following') === 'true';
+            if (isFollowing) {
+                followBtn.textContent = 'Seguir';
+                followBtn.classList.remove('bg-slate-200');
+                followBtn.classList.add('bg-white');
+                followBtn.setAttribute('data-following', 'false');
+            } else {
+                followBtn.textContent = 'Siguiendo';
+                followBtn.classList.remove('bg-white');
+                followBtn.classList.add('bg-slate-200');
+                followBtn.setAttribute('data-following', 'true');
+            }
+        });
+    }
+
+    if (messageBtn) {
+        messageBtn.addEventListener('click', () => alert('Direct messages interface would open here.'));
+    }
+
+    if (moreBtn) {
+        moreBtn.addEventListener('click', () => alert('Showing more profile options...'));
+    }
+
+    // Header buttons
+    const searchBtn = document.getElementById('btn-search-profile');
+    const notifyBtn = document.getElementById('btn-notifications-profile');
+
+    if (searchBtn) searchBtn.addEventListener('click', () => alert('Search profile content...'));
+    if (notifyBtn) notifyBtn.addEventListener('click', () => alert('Showing profile notifications...'));
+
+    // Achievements Section
+    const viewAllBadgesBtn = document.getElementById('btn-view-all-badges');
+    if (viewAllBadgesBtn) {
+        viewAllBadgesBtn.addEventListener('click', () => {
+            window.location.href = 'Archivenments.html';
+        });
+    };
 });

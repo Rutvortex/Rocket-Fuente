@@ -73,17 +73,17 @@
                     <div class="relative w-full">
                         <span
                             class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
-                        <input
+                        <input id="search-shorts-input"
                             class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary placeholder:text-slate-500"
                             placeholder="Search creators or tags" type="text" />
                     </div>
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <button class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                <button id="btn-notifications-shorts" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                     <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
                 </button>
-                <button class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                <button id="btn-settings-shorts" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                     <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">settings</span>
                 </button>
                 <div
@@ -147,7 +147,7 @@
                         </div>
                         <div
                             class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button
+                            <button id="btn-play-short"
                                 class="size-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white">
                                 <span class="material-symbols-outlined text-4xl"
                                     style="font-variation-settings: 'FILL' 1">play_arrow</span>
@@ -165,7 +165,7 @@
                                     <div class="flex flex-col">
                                         <div class="flex items-center gap-2">
                                             <span class="text-white font-bold text-base">@marcus_studio</span>
-                                            <button
+                                            <button id="btn-follow-creator-short"
                                                 class="px-3 py-1 text-white text-xs font-bold rounded-lg hover:bg-primary/90 transition-colors">Follow</button>
                                         </div>
                                         <span class="text-slate-300 text-xs">Professional Creator</span>
@@ -189,7 +189,7 @@
                     </div>
                     <div class="flex flex-col gap-4 pb-8">
                         <div class="flex flex-col items-center gap-1 group">
-                            <button
+                            <button id="btn-like-short"
                                 class="size-12 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary transition-all">
                                 <span class="material-symbols-outlined text-2xl"
                                     style="font-variation-settings: 'FILL' 0">star</span>
@@ -197,21 +197,21 @@
                             <span class="text-xs font-bold text-slate-500">12.4k</span>
                         </div>
                         <div class="flex flex-col items-center gap-1 group">
-                            <button
+                            <button id="btn-comment-short"
                                 class="size-12 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary transition-all">
                                 <span class="material-symbols-outlined text-2xl">chat_bubble</span>
                             </button>
                             <span class="text-xs font-bold text-slate-500">856</span>
                         </div>
                         <div class="flex flex-col items-center gap-1 group">
-                            <button
+                            <button id="btn-share-short"
                                 class="size-12 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary transition-all">
                                 <span class="material-symbols-outlined text-2xl">share</span>
                             </button>
                             <span class="text-xs font-bold text-slate-500">2.1k</span>
                         </div>
                         <div class="flex flex-col items-center gap-1 group pt-4">
-                            <button
+                            <button id="btn-more-short"
                                 class="size-12 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">
                                 <span class="material-symbols-outlined text-2xl">more_vert</span>
                             </button>

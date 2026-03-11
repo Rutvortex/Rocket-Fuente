@@ -58,11 +58,11 @@
                 <h2 class="text-lg font-bold tracking-tight">Vortex</h2>
             </a>
             <div class="flex items-center gap-4">
-                <button
+                <button id="btn-search-profile"
                     class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-[#1E1E1E] transition-colors">
                     <span class="material-symbols-outlined">search</span>
                 </button>
-                <button
+                <button id="btn-notifications-profile"
                     class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-[#1E1E1E] transition-colors">
                     <span class="material-symbols-outlined">notifications</span>
                 </button>
@@ -89,15 +89,15 @@
                             </div>
                         </div>
                         <div class="flex gap-3 mb-2">
-                            <button
+                            <button id="btn-follow-profile"
                                 class="flex h-10 items-center justify-center rounded-lg bg-white px-6 text-sm font-bold text-[#121212] hover:bg-slate-200 transition-colors">
                                 Seguir
                             </button>
-                            <button
+                            <button id="btn-message-profile"
                                 class="flex h-10 items-center justify-center rounded-lg border border-[#2E2E2E] bg-transparent px-6 text-sm font-bold text-white hover:bg-[#2E2E2E] transition-colors">
                                 Mensaje
                             </button>
-                            <button
+                            <button id="btn-more-options-profile"
                                 class="flex h-10 w-10 items-center justify-center rounded-lg border border-[#2E2E2E] text-white hover:bg-[#2E2E2E]">
                                 <span class="material-symbols-outlined">more_horiz</span>
                             </button>
@@ -106,13 +106,13 @@
                 </div>
             </section>
             <nav class="mb-8 flex border-b border-[#2E2E2E]">
-                <button class="relative border-b-2 border-white px-6 py-4 text-sm font-bold text-white">
+                <button id="tab-posts" class="relative border-b-2 border-white px-6 py-4 text-sm font-bold text-white">
                     Yo
                 </button>
-                <button class="px-6 py-4 text-sm font-medium text-[#A0A0A0] hover:text-white transition-colors">
+                <button id="tab-about" class="px-6 py-4 text-sm font-medium text-[#A0A0A0] hover:text-white transition-colors">
                     Acerca de mí
                 </button>
-                <button class="px-6 py-4 text-sm font-medium text-[#A0A0A0] hover:text-white transition-colors">
+                <button id="tab-achievements" class="px-6 py-4 text-sm font-medium text-[#A0A0A0] hover:text-white transition-colors">
                     Logros
                 </button>
             </nav>
@@ -182,7 +182,7 @@
                     <div class="rounded-xl border border-[#2E2E2E] bg-[#1E1E1E] p-6">
                         <div class="mb-4 flex items-center justify-between">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-[#A0A0A0]">Insignias</h3>
-                            <button class="text-xs font-medium text-white hover:underline">Ver todo</button>
+                            <button id="btn-view-all-badges" class="text-xs font-medium text-white hover:underline">Ver todo</button>
                         </div>
                         <div class="grid grid-cols-4 gap-3">
                             <div class="group relative flex aspect-square items-center justify-center rounded-lg bg-[#2E2E2E] transition-all hover:bg-white hover:text-[#121212]"

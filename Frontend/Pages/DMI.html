@@ -86,11 +86,11 @@
                     style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCG8FfhhgTP2Fnhi_pBZ4lsyHU3zkS-aNA2M-l_riT-jQKBGBWED0jhzAWDDA6gMNj1PAs-JIum1IoVsTO8CN2TsexE9Jgk3V5_xsupNzz8q11f23TON1K9eKfNTIcGSYO7Kkt3gdrO9rdagVggqs-6GFWJ9vyR1ypsIR1VZBP4uEIVhcjwaITZNkNb7_iYqosTiSpj9wHloM6m8YwgeDVhfoOC9S_4yvY7HxXH7B3CZvKwxg5bEfLmMljx6aBcx4u7GSgif_gdiZs')">
                 </div>
             </div>
-            <div
+            <div id="btn-add-server"
                 class="mt-auto w-12 h-12 bg-slate-300 dark:bg-slate-800 rounded-full flex items-center justify-center cursor-pointer hover:rounded-xl hover:bg-green-500 transition-all duration-200">
                 <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">add</span>
             </div>
-            <div
+            <div id="btn-explore-servers"
                 class="w-12 h-12 bg-slate-300 dark:bg-slate-800 rounded-full flex items-center justify-center cursor-pointer hover:rounded-xl hover:bg-primary transition-all duration-200">
                 <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">explore</span>
             </div>
@@ -115,17 +115,17 @@
                             class="material-symbols-outlined text-xs cursor-pointer hover:text-slate-900 dark:hover:text-white">add</span>
                     </div>
                     <div class="space-y-1">
-                        <div
+                        <div id="channel-general"
                             class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary cursor-pointer bg-white/10 text-white">
                             <span class="material-symbols-outlined text-xl">tag</span>
                             <span class="text-sm font-medium">general</span>
                         </div>
-                        <div
+                        <div id="channel-announcements"
                             class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 cursor-pointer transition-colors">
                             <span class="material-symbols-outlined text-xl">tag</span>
                             <span class="text-sm font-medium">announcements</span>
                         </div>
-                        <div
+                        <div id="channel-showcase"
                             class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 cursor-pointer transition-colors">
                             <span class="material-symbols-outlined text-xl">tag</span>
                             <span class="text-sm font-medium">showcase</span>
@@ -183,11 +183,11 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-1">
-                    <button class="p-1 hover:bg-slate-300 dark:hover:bg-slate-800 rounded text-slate-500"><span
+                    <button id="btn-mic-toggle" class="p-1 hover:bg-slate-300 dark:hover:bg-slate-800 rounded text-slate-500"><span
                             class="material-symbols-outlined text-lg">mic</span></button>
-                    <button class="p-1 hover:bg-slate-300 dark:hover:bg-slate-800 rounded text-slate-500"><span
+                    <button id="btn-audio-toggle" class="p-1 hover:bg-slate-300 dark:hover:bg-slate-800 rounded text-slate-500"><span
                             class="material-symbols-outlined text-lg">headphones</span></button>
-                    <button class="p-1 hover:bg-slate-300 dark:hover:bg-slate-800 rounded text-slate-500"><span
+                    <button id="btn-settings-dmi" class="p-1 hover:bg-slate-300 dark:hover:bg-slate-800 rounded text-slate-500"><span
                             class="material-symbols-outlined text-lg">settings</span></button>
                 </div>
             </footer>
@@ -205,8 +205,8 @@
                     <h2 class="font-bold truncate text-sm">general</h2>
                 </div>
                 <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined cursor-pointer text-xl text-white">search</span>
-                    <span class="material-symbols-outlined cursor-pointer text-xl text-white">group</span>
+                    <span id="btn-search-chat" class="material-symbols-outlined cursor-pointer text-xl text-white">search</span>
+                    <span id="btn-members-toggle" class="material-symbols-outlined cursor-pointer text-xl text-white">group</span>
                 </div>
             </header>
             <div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-6 px-4 py-2">
@@ -295,7 +295,7 @@
                     <button class="text-slate-500 mr-2">
                         <span class="material-symbols-outlined text-2xl">add</span>
                     </button>
-                    <input
+                    <input id="chat-input"
                         class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-1 placeholder:text-slate-500"
                         placeholder="Message #general" type="text" />
                     <button class="ml-2 text-white">

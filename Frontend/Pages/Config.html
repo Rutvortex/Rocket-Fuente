@@ -56,17 +56,17 @@
           <div class="text-slate-400 flex items-center justify-center pl-4">
             <span class="material-symbols-outlined text-xl">search</span>
           </div>
-          <input
+          <input id="search-settings-input"
             class="form-input flex w-full border-none bg-transparent focus:ring-0 text-sm placeholder:text-slate-500"
             placeholder="Search settings..." value="" />
         </div>
       </label>
       <div class="flex gap-2">
-        <button
+        <button id="btn-notifications-settings"
           class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
           <span class="material-symbols-outlined">notifications</span>
         </button>
-        <button
+        <button id="btn-profile-settings"
           class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
           <span class="material-symbols-outlined text-2xl">account_circle</span>
         </button>
@@ -190,7 +190,7 @@
                     </p>
                   </div>
                 </div>
-                <button
+                <button id="btn-enable-2fa"
                   class="px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-bold rounded-lg hover:brightness-110 transition-colors">
                   Enable
                 </button>
@@ -208,7 +208,7 @@
                     <p class="text-sm text-slate-500 dark:text-slate-400">Last changed 3 months ago</p>
                   </div>
                 </div>
-                <button
+                <button id="btn-change-password"
                   class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
                   Change Password
                 </button>
@@ -217,11 +217,11 @@
           </section>
           <!-- Footer Actions -->
           <div class="flex items-center justify-end gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
-            <button
+            <button id="btn-discard-changes"
               class="px-6 py-2.5 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100">
               Discard Changes
             </button>
-            <button
+            <button id="btn-save-preferences"
               class="px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-bold rounded-lg hover:brightness-110 transition-colors">
               Save Preferences
             </button>

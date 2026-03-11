@@ -75,17 +75,17 @@
                         <div class="flex items-center justify-center pl-3 text-slate-400">
                             <span class="material-symbols-outlined text-xl">search</span>
                         </div>
-                        <input class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-500"
+                        <input id="search-large-player" class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-500"
                             placeholder="Search architectural studies..." type="text" />
                     </div>
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <button
+                <button id="btn-notifications-large"
                     class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
                     <span class="material-symbols-outlined">notifications</span>
                 </button>
-                <button
+                <button id="btn-upload-large"
                     class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
                     <span class="material-symbols-outlined">upload</span>
                 </button>
@@ -106,7 +106,7 @@
                         <img class="w-full h-full object-cover grayscale opacity-80"
                             data-alt="Grayscale architectural brutalist building close up"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDopWyau8pO1SYML4B1fZu_54CrGFd8QBTl6Ny3w_ZDGCJP_cvmaM6kelNHd5t__-TVWxA5VXa9ZhifDNJM2u5jUaV-kwEAafZXsMdxIaSpJuPAhgGHZPFIDmOgEYpIbR_YBw0zfW_g0ah0BBpzQtay9nb59qkXkhrSuTueDKriHFyr9Oy5gc8T-NiQdzrL0Ghk-wp5iCQkyeJiKR6H0-LMS1V0A62WxXs3hlpkdDrXh2F8HL50dqViqt6uHd9RmZIVdwFNoFXTTqA" />
-                        <button
+                        <button id="btn-central-play-large"
                             class="absolute size-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:scale-110 transition-transform">
                             <span
                                 class="material-symbols-outlined text-5xl fill-icon text-slate-900 dark:text-white">play_arrow</span>
@@ -116,7 +116,7 @@
                     <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent pt-20">
                         <div class="flex flex-col gap-3">
                             <!-- Progress Bar -->
-                            <div class="relative h-1.5 w-full bg-white/20 rounded-full cursor-pointer group/progress">
+                             <div id="progress-bar-large" class="relative h-1.5 w-full bg-white/20 rounded-full cursor-pointer group/progress">
                                 <div class="absolute h-full bg-white rounded-full w-[45%]"></div>
                                 <div
                                     class="absolute size-3 bg-white rounded-full -top-[3px] left-[45%] opacity-0 group-hover/progress:opacity-100 shadow-lg">
@@ -125,25 +125,25 @@
                             <!-- Control Buttons -->
                             <div class="flex items-center justify-between text-white">
                                 <div class="flex items-center gap-6">
-                                    <span
+                                    <span id="btn-play-pause-large"
                                         class="material-symbols-outlined cursor-pointer hover:text-slate-300">play_arrow</span>
-                                    <span
+                                    <span id="btn-next-large"
                                         class="material-symbols-outlined cursor-pointer hover:text-slate-300">skip_next</span>
                                     <div class="flex items-center gap-2 group/vol">
-                                        <span
+                                        <span id="btn-volume-large"
                                             class="material-symbols-outlined cursor-pointer hover:text-slate-300">volume_up</span>
-                                        <div class="w-16 h-1 bg-white/30 rounded-full overflow-hidden">
+                                        <div id="volume-bar-large" class="w-16 h-1 bg-white/30 rounded-full overflow-hidden">
                                             <div class="w-3/4 h-full bg-white"></div>
                                         </div>
                                     </div>
                                     <span class="text-xs font-medium tabular-nums">12:45 / 28:00</span>
                                 </div>
                                 <div class="flex items-center gap-6">
-                                    <span
+                                    <span id="btn-settings-large"
                                         class="material-symbols-outlined cursor-pointer hover:text-slate-300">settings</span>
-                                    <span
+                                    <span id="btn-pip-large"
                                         class="material-symbols-outlined cursor-pointer hover:text-slate-300">branding_watermark</span>
-                                    <span
+                                    <span id="btn-fullscreen-large"
                                         class="material-symbols-outlined cursor-pointer hover:text-slate-300">fullscreen</span>
                                 </div>
                             </div>
@@ -160,19 +160,19 @@
                             <span>Oct 24, 2023</span>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div
-                                class="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+                             <div id="btn-rate-large"
+                                class="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 cursor-pointer">
                                 <span
                                     class="material-symbols-outlined text-lg fill-icon text-slate-900 dark:text-white">star</span>
                                 <span class="text-sm font-bold">4.8</span>
                                 <span class="text-slate-400 text-xs">(1.2k)</span>
                             </div>
-                            <button
+                             <button id="btn-share-large"
                                 class="flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-1.5 rounded-lg transition-colors">
                                 <span class="material-symbols-outlined text-xl">share</span>
                                 <span class="text-sm font-medium">Share</span>
                             </button>
-                            <button
+                             <button id="btn-save-large"
                                 class="flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-1.5 rounded-lg transition-colors">
                                 <span class="material-symbols-outlined text-xl">playlist_add</span>
                                 <span class="text-sm font-medium">Save</span>
@@ -195,7 +195,7 @@
                                 <p class="text-xs text-slate-500">450K followers</p>
                             </div>
                         </div>
-                        <button
+                         <button id="btn-follow-creator-large"
                             class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">Follow</button>
                     </div>
                     <div class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -222,13 +222,13 @@
                     <div class="flex gap-4">
                         <div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 shrink-0"></div>
                         <div class="flex-1 flex flex-col gap-2">
-                            <textarea
+                             <textarea id="comment-textarea-large"
                                 class="w-full bg-transparent border-b border-slate-300 dark:border-slate-700 focus:border-slate-900 dark:focus:border-slate-100 border-x-0 border-t-0 ring-0 focus:ring-0 px-0 py-2 resize-none text-sm placeholder:text-slate-500"
                                 placeholder="Add a comment..."></textarea>
                             <div class="flex justify-end gap-3">
-                                <button
+                                 <button id="btn-cancel-comment-large"
                                     class="px-4 py-2 text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-slate-100">Cancel</button>
-                                <button
+                                <button id="btn-post-comment-large"
                                     class="px-4 py-2 text-sm font-bold bg-slate-200 dark:bg-slate-700 rounded-lg opacity-50 cursor-not-allowed">Comment</button>
                             </div>
                         </div>
@@ -391,7 +391,7 @@
             </div>
         </main>
     </div>
-    <script src="LargePlayer.js"></script>
+    <script src="../VideoPlayer.js"></script>
     <script src="../shared.js"></script>
 </body>
 

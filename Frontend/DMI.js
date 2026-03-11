@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Channel switching
-    const channels = document.querySelectorAll('.space-y-1 > div');
+    const channelIds = ['channel-general', 'channel-announcements', 'channel-showcase'];
+    const channels = channelIds.map(id => document.getElementById(id)).filter(el => el);
+
     channels.forEach(channel => {
         channel.addEventListener('click', () => {
             channels.forEach(ch => {
@@ -27,32 +29,47 @@ document.addEventListener('DOMContentLoaded', () => {
             channel.classList.remove('hover:bg-slate-200', 'dark:hover:bg-slate-800', 'text-slate-600', 'dark:text-slate-400');
             
             const channelName = channel.querySelector('span.text-sm')?.textContent;
-            document.querySelector('main header h2').textContent = channelName;
+            const headerTitle = document.querySelector('main header h2');
+            if (headerTitle) headerTitle.textContent = channelName;
             alert(`Switched to channel: #${channelName}`);
         });
     });
 
     // Message Input
-    const msgInput = document.querySelector('footer input[placeholder^="Message"]');
+    const msgInput = document.getElementById('chat-input');
     if (msgInput) {
         msgInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && msgInput.value.trim() !== '') {
                 const msg = msgInput.value;
-                alert(`Message sent: ${msg}`);
+                alert(`Message sent to #${document.querySelector('main header h2').textContent}: ${msg}`);
                 msgInput.value = '';
-                // In a real app, you'd prepend a new message element to the chat container
             }
         });
     }
 
     // User Controls
-    const controlBtns = document.querySelectorAll('footer button');
-    controlBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const icon = btn.querySelector('.material-symbols-outlined')?.textContent;
-            if (icon === 'mic') alert('Microphone toggled');
-            else if (icon === 'headphones') alert('Audio toggled');
-            else if (icon === 'settings') window.location.href = 'Config.html';
-        });
+    const micBtn = document.getElementById('btn-mic-toggle');
+    const audioBtn = document.getElementById('btn-audio-toggle');
+    const settingsBtn = document.getElementById('btn-settings-dmi');
+
+    if (micBtn) micBtn.addEventListener('click', () => alert('Microphone toggled'));
+    if (audioBtn) audioBtn.addEventListener('click', () => alert('Audio toggled'));
+    if (settingsBtn) settingsBtn.addEventListener('click', () => window.location.href = 'Config.html');
+
+    // Server Buttons
+    const addServerBtn = document.getElementById('btn-add-server');
+    const exploreBtn = document.getElementById('btn-explore-servers');
+
+    if (addServerBtn) addServerBtn.addEventListener('click', () => alert('Add a new server...'));
+    if (exploreBtn) exploreBtn.addEventListener('click', () => alert('Explore community servers...'));
+
+    // Chat Header Buttons
+    const searchChatBtn = document.getElementById('btn-search-chat');
+    const membersToggleBtn = document.getElementById('btn-members-toggle');
+
+    if (searchChatBtn) searchChatBtn.addEventListener('click', () => alert('Search in this channel...'));
+    if (membersToggleBtn) membersToggleBtn.addEventListener('click', () => {
+        const rightSidebar = document.querySelector('aside.w-64.bg-slate-100.dark\\:bg-slate-900\\/80.border-l');
+        if (rightSidebar) rightSidebar.classList.toggle('hidden');
     });
 });
