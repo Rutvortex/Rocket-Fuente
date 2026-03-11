@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Spline Sans"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Spline Sans', sans-serif;
+    }
+
+    .grayscale-filter {
+      filter: grayscale(100%);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+  <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <!-- Navigation Header -->
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 lg:px-40 py-4 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+        <a href="MainHub.html" class="flex items-center gap-4">
+          <div class="size-8 flex items-center justify-center bg-slate-200 dark:bg-slate-800 rounded-lg">
+            <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">workspace_premium</span>
+          </div>
+          <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Achievements
+          </h2>
+        </a>
+        <div class="flex gap-2">
+          <button
+            class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+            <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">search</span>
+          </button>
+          <button
+            class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+            <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">settings</span>
+          </button>
+        </div>
+      </header>
+      <main class="flex-1 px-6 lg:px-40 py-8 max-w-[1200px] mx-auto w-full">
+        <!-- 1. User Summary Section -->
+        <section
+          class="flex flex-col md:flex-row items-center gap-8 mb-12 p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+          <div class="relative">
+            <div
+              class="size-32 rounded-full border-4 border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-300 dark:bg-slate-700"
+              data-alt="Portrait of a user with a clean minimalist aesthetic">
+              <img alt="User Avatar" class="w-full h-full object-cover grayscale"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM2DPQj4itpOo3H1buC7pSFlTfIVnPZeM1W2dlzAkILDz4tvS6bC4HBYa8xox9qRxnC8zS5K3-BUYwClRhPSk49XmeJSfJWjb1FRo9TRiVH7wEAum47ePUYHZ5OQmHjA7Omn4-NShJBPSzT9N4X8wbgs7uElBEBY5NEGUARxX7SBnh_5yIwcAhtH8vP9qsjjpw09Fxs3z3LA0jK9ouuG2E28P4zyy348PNpqNDcYqDnpN88sbHrA9M0lPFshM83Wgl9S0KHCV0klU" />
+            </div>
+            <div
+              class="absolute -bottom-2 -right-2 size-10 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 flex items-center justify-center">
+              <span class="material-symbols-outlined text-slate-600 dark:text-slate-400 text-xl">verified</span>
+            </div>
+          </div>
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <h1 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Alexander Thorne</h1>
+            <p class="text-slate-500 dark:text-slate-400 mt-1">Senior Architect &amp; Lead Contributor</p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4">
+              <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-200 dark:bg-slate-800">
+                <span class="material-symbols-outlined text-sm">stars</span>
+                <span class="text-sm font-semibold">12,450 Points</span>
+              </div>
+              <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-200 dark:bg-slate-800">
+                <span class="material-symbols-outlined text-sm">military_tech</span>
+                <span class="text-sm font-semibold">Rank #42</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Categories -->
+        <div class="flex flex-wrap gap-2 mb-8 overflow-x-auto pb-2">
+          <button
+            class="px-5 py-2 rounded-full bg-slate-900 dark:bg-slate-100 text-slate-100 dark:text-slate-900 text-sm font-medium transition-colors">All
+            Achievements</button>
+          <button
+            class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Social</button>
+          <button
+            class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Content</button>
+          <button
+            class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Security</button>
+          <button
+            class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Special
+            Events</button>
+        </div>
+        <!-- 2. Featured Badges -->
+        <div class="mb-12">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined">auto_awesome</span>
+              Featured Badges
+            </h3>
+            <a class="text-sm font-medium text-slate-500 hover:text-slate-800 dark:hover:text-slate-200" href="#">View
+              Gallery</a>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Badge 1 -->
+            <div
+              class="flex flex-col items-center p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-center group hover:border-slate-400 dark:hover:border-slate-600 transition-all">
+              <div
+                class="size-20 mb-4 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-4xl text-slate-800 dark:text-slate-200">diamond</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">Elite Contributor</h4>
+              <p class="text-xs text-slate-500">Top 1% of creators</p>
+            </div>
+            <!-- Badge 2 -->
+            <div
+              class="flex flex-col items-center p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-center group hover:border-slate-400 dark:hover:border-slate-600 transition-all">
+              <div
+                class="size-20 mb-4 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-4xl text-slate-800 dark:text-slate-200">rocket_launch</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">Early Adopter</h4>
+              <p class="text-xs text-slate-500">Joined in Year 1</p>
+            </div>
+            <!-- Badge 3 -->
+            <div
+              class="flex flex-col items-center p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-center group hover:border-slate-400 dark:hover:border-slate-600 transition-all">
+              <div
+                class="size-20 mb-4 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform">
+                <span
+                  class="material-symbols-outlined text-4xl text-slate-800 dark:text-slate-200">shield_with_heart</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">Community Pillar</h4>
+              <p class="text-xs text-slate-500">Highly trusted peer</p>
+            </div>
+            <!-- Badge 4 -->
+            <div
+              class="flex flex-col items-center p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-center group hover:border-slate-400 dark:hover:border-slate-600 transition-all">
+              <div
+                class="size-20 mb-4 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-100 dark:border-slate-700 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-4xl text-slate-800 dark:text-slate-200">history_edu</span>
+              </div>
+              <h4 class="font-bold text-sm mb-1">Storyteller</h4>
+              <p class="text-xs text-slate-500">100+ Long posts</p>
+            </div>
+          </div>
+        </div>
+        <!-- 3. Progressive Achievements -->
+        <div class="mb-12">
+          <h3 class="text-xl font-bold flex items-center gap-2 mb-6">
+            <span class="material-symbols-outlined">trending_up</span>
+            Progressive Achievements
+          </h3>
+          <div class="space-y-4">
+            <!-- Progress Item 1 -->
+            <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40">
+              <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-slate-500">edit_note</span>
+                  <div>
+                    <p class="font-bold text-sm">Content Creator</p>
+                    <p class="text-xs text-slate-500">Publish 50 articles</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">42 / 50</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-slate-900 dark:bg-slate-100 h-full w-[84%] rounded-full"></div>
+              </div>
+            </div>
+            <!-- Progress Item 2 -->
+            <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40">
+              <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-slate-500">group</span>
+                  <div>
+                    <p class="font-bold text-sm">Social Butterfly</p>
+                    <p class="text-xs text-slate-500">Connect with 500 members</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">482 / 500</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-slate-900 dark:bg-slate-100 h-full w-[96%] rounded-full"></div>
+              </div>
+            </div>
+            <!-- Progress Item 3 -->
+            <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40">
+              <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-slate-500">calendar_today</span>
+                  <div>
+                    <p class="font-bold text-sm">Daily Voyager</p>
+                    <p class="text-xs text-slate-500">Login 30 days in a row</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">12 / 30</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-slate-900 dark:bg-slate-100 h-full w-[40%] rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 4. Locked Badges -->
+        <div>
+          <h3 class="text-xl font-bold flex items-center gap-2 mb-6">
+            <span class="material-symbols-outlined">lock</span>
+            Locked Badges
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Locked 1 -->
+            <div
+              class="p-4 flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20 opacity-60">
+              <div
+                class="size-12 shrink-0 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center grayscale">
+                <span class="material-symbols-outlined text-2xl text-slate-400">workspace_premium</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold">The Legend</h4>
+                <p class="text-[11px] text-slate-500">Reach 50,000 lifetime points to unlock</p>
+              </div>
+            </div>
+            <!-- Locked 2 -->
+            <div
+              class="p-4 flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20 opacity-60">
+              <div
+                class="size-12 shrink-0 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center grayscale">
+                <span class="material-symbols-outlined text-2xl text-slate-400">public</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold">Global Citizen</h4>
+                <p class="text-[11px] text-slate-500">Post from 5 different continents</p>
+              </div>
+            </div>
+            <!-- Locked 3 -->
+            <div
+              class="p-4 flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20 opacity-60">
+              <div
+                class="size-12 shrink-0 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center grayscale">
+                <span class="material-symbols-outlined text-2xl text-slate-400">military_tech</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold">Bug Hunter</h4>
+                <p class="text-[11px] text-slate-500">Identify 3 security vulnerabilities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Bottom Spacer for mobile/extra scrolling room -->
+      <footer
+        class="py-12 px-6 lg:px-40 text-center border-t border-slate-200 dark:border-slate-800 mt-12 bg-slate-50 dark:bg-slate-900/50">
+        <p class="text-slate-500 dark:text-slate-400 text-sm">Total Achievements Earned: 24 / 120</p>
+        <div class="mt-4 flex justify-center gap-6 grayscale opacity-40">
+          <span class="material-symbols-outlined">brand_awareness</span>
+          <span class="material-symbols-outlined">security</span>
+          <span class="material-symbols-outlined">hub</span>
+          <span class="material-symbols-outlined">token</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="Archivenments.js"></script>
+  <script src="../shared.js"></script>
+</body>
+
+</html>

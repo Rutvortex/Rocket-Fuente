@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Red Social",
+  "keywords": [
+    "Red"
+  ],
+  "homepage": "https://github.com/Rutvortex/Red-Social-Test#readme",
+  "bugs": {
+    "url": "https://github.com/Rutvortex/Red-Social-Test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rutvortex/Red-Social-Test.git"
+  },
+  "license": "ISC",
+  "author": "Elian",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm help"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.2.4",
+    "nodemon": "^3.1.14"
+  }
+}
