@@ -12,6 +12,10 @@ def print_menu():
     print("3. Bot: Auto-Post")
     print("4. Developer: Manage Badges")
     print("5. View All Posts")
+    print("6. Follow User")
+    print("7. Unfollow User")
+    print("8. Comment on Post")
+    print("9. Rate Post (Stars)")
 
 def create_account(role_type):
     print(f"\nCreating {role_type} Account...")
@@ -73,6 +77,43 @@ def manage_badges():
     except Exception as e:
         print(f"Error: {e}")
 
+def follow_user():
+    follower_id = input("Enter Follower User ID: ")
+    target_id = input("Enter User ID to follow: ")
+    try:
+        response = requests.post(f"{BASE_URL}/users/{target_id}/follow", json={"followerId": follower_id})
+        print(f"Status: {response.status_code}, Response: {response.json().get('message')}")
+    except Exception as e:
+        print(f"Error: {e}")
+
+def unfollow_user():
+    follower_id = input("Enter Follower User ID: ")
+    target_id = input("Enter User ID to unfollow: ")
+    try:
+        response = requests.post(f"{BASE_URL}/users/{target_id}/unfollow", json={"followerId": follower_id})
+        print(f"Status: {response.status_code}, Response: {response.json().get('message')}")
+    except Exception as e:
+        print(f"Error: {e}")
+
+def comment_on_post():
+    user_id = input("Enter User ID commenting: ")
+    post_id = input("Enter Post ID: ")
+    text = input("Comment Text: ")
+    try:
+        response = requests.post(f"{BASE_URL}/posts/{post_id}/comment", json={"userId": user_id, "text": text})
+        print(f"Status: {response.status_code}, Comment Posted.")
+    except Exception as e:
+        print(f"Error: {e}")
+
+def rate_post():
+    post_id = input("Enter Post ID: ")
+    stars = input("Stars (1-5): ")
+    try:
+        response = requests.put(f"{BASE_URL}/posts/{post_id}/rate", json={"stars": int(stars)})
+        print(f"Status: {response.status_code}, Rating Updated.")
+    except Exception as e:
+        print(f"Error: {e}")
+
 def main():
     while True:
         print_menu()
@@ -92,6 +133,14 @@ def main():
                 print(json.dumps(r.json(), indent=2))
             except:
                 print("Error fetching posts.")
+        elif choice == "6":
+            follow_user()
+        elif choice == "7":
+            unfollow_user()
+        elif choice == "8":
+            comment_on_post()
+        elif choice == "9":
+            rate_post()
         elif choice == "0":
             break
         else:
