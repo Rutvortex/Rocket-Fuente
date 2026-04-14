@@ -15,4 +15,10 @@ cd mern-crud-auth
 npm install
 cp .env.example .env # Edita .env con tus valores
 ## Autor
-Tu Nombre — @tu-usuario-github
+Elian Fernando Hernandez Guillen - Rutvortex
+
+## Colaboradores
+Lluvia Milagros Valdez Rodrigez
+Angel Daniel Morales Perez
+Abigail Salazar Sandoval
+Brisa Daney Gonzales espinoza
