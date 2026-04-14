@@ -10,7 +10,7 @@ y un CRUD protegido, desarrollada con el stack MERN.
 - Node.js v18+
 - MongoDB Atlas o MongoDB local
 ## Instalacion
-git clone https://github.com/tu-usuario/mern-crud-auth
+git clone https://github.com/Rutvortex/Rocket-Fuente
 cd mern-crud-auth
 npm install
 cp .env.example .env # Edita .env con tus valores
