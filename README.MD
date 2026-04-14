@@ -19,6 +19,6 @@ Elian Fernando Hernandez Guillen - Rutvortex
 
 ## Colaboradores
 Lluvia Milagros Valdez Rodrigez
-Angel Daniel Morales Perez
+Angel Daniel Morales Perez -angelmoralesalp-creator
 Abigail Salazar Sandoval
 Brisa Daney Gonzales espinoza
