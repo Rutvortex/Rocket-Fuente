@@ -12,7 +12,7 @@ y un CRUD protegido, desarrollada con el stack MERN.
 ## Instalacion
 git clone https://github.com/Rutvortex/Rocket-Fuente
 cd mern-crud-auth
-npm install
+npm install bcryptjs cors dotenv express express-validator helmet jsonwebtoken mongoose morgan multer
 cp .env.example .env # Edita .env con tus valores
 ## Autor
 Elian Fernando Hernandez Guillen - Rutvortex
