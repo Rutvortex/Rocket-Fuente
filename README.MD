@@ -11,7 +11,7 @@ y un CRUD protegido, desarrollada con el stack MERN.
 - MongoDB Atlas o MongoDB local
 ## Instalacion
 git clone https://github.com/Rutvortex/Rocket-Fuente
-cd mern-crud-auth
+cd Rocket-Fuente
 npm install bcryptjs cors dotenv express express-validator helmet jsonwebtoken mongoose morgan multer
 cp .env.example .env # Edita .env con tus valores
 ## Autor
