@@ -1,0 +1,237 @@
+<html class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#525252",
+            "background-light": "#ffffff",
+            "background-dark": "#000000",
+          },
+          fontFamily: {
+            "display": ["Inter"],
+            "sans": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+  <div class="relative flex min-h-screen flex-col">
+    <!-- Top Navigation Bar -->
+    <a href="MainHub.html" class="flex items-center gap-4">
+      <div
+        class="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900">
+        <span class="material-symbols-outlined">settings</span>
+      </div>
+      <h2 class="text-lg font-bold tracking-tight">Vortex Settings</h2>
+    </a>
+    <div class="flex flex-1 justify-end gap-4 lg:gap-8">
+      <label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+        <div class="flex w-full flex-1 items-stretch rounded-lg bg-slate-100 dark:bg-slate-800">
+          <div class="text-slate-400 flex items-center justify-center pl-4">
+            <span class="material-symbols-outlined text-xl">search</span>
+          </div>
+          <input id="search-settings-input"
+            class="form-input flex w-full border-none bg-transparent focus:ring-0 text-sm placeholder:text-slate-500"
+            placeholder="Search settings..." value="" />
+        </div>
+      </label>
+      <div class="flex gap-2">
+        <button id="btn-notifications-settings"
+          class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button id="btn-profile-settings"
+          class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+          <span class="material-symbols-outlined text-2xl">account_circle</span>
+        </button>
+      </div>
+    </div>
+    </header>
+    <div class="flex flex-1 overflow-hidden">
+      <!-- Sidebar Sidebar -->
+      <aside
+        class="w-64 border-r border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark hidden lg:flex flex-col p-6 gap-6">
+        <div class="flex flex-col gap-1">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-3">General
+          </h3>
+          <nav class="flex flex-col gap-1 mt-2">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium"
+              href="MainHub.html">
+              <span class="material-symbols-outlined">home</span>
+              <span class="text-sm">Home Feed</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+              href="Profile.html">
+              <span class="material-symbols-outlined">person</span>
+              <span class="text-sm">Profile</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+              href="ShortSeccion.html">
+              <span class="material-symbols-outlined">play_circle</span>
+              <span class="text-sm">Shorts</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+              href="Rewards.html">
+              <span class="material-symbols-outlined">workspace_premium</span>
+              <span class="text-sm">Rewards</span>
+            </a>
+          </nav>
+        </div>
+        <div class="flex flex-col gap-1 mt-auto">
+          <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
+            <p class="text-xs font-medium text-slate-900 dark:text-slate-100">Storage Used</p>
+            <div class="mt-2 h-1.5 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div class="h-full bg-zinc-500 dark:bg-zinc-400 rounded-full" style="width: 65%"></div>
+            </div>
+            <p class="mt-2 text-[10px] text-slate-500 dark:text-slate-400">12.4 GB of 20 GB used</p>
+          </div>
+        </div>
+      </aside>
+      <!-- Main Content Area -->
+      <main class="flex-1 overflow-y-auto p-6 lg:p-10">
+        <div class="max-w-4xl mx-auto flex flex-col gap-10">
+          <!-- Header Section -->
+          <div class="flex flex-col gap-2">
+            <h1 class="text-3xl font-bold tracking-tight">Personalization</h1>
+            <p class="text-slate-500 dark:text-slate-400">Customize the look and feel of your digital workspace.</p>
+          </div>
+          <!-- Personalization Options -->
+          <section class="flex flex-col gap-4">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <span class="material-symbols-outlined text-zinc-400">brush</span>
+              Theme &amp; Style
+            </h2>
+            <div class="grid gap-4">
+              <!-- Dark Mode Toggle -->
+              <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+                <div class="flex flex-col gap-1">
+                  <p class="font-bold">Dark Mode</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Switch between light and dark themes</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input id="dark-mode-toggle" checked="" class="sr-only peer" type="checkbox" />
+                  <div
+                    class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-zinc-600 dark:peer-checked:bg-zinc-400">
+                  </div>
+                </label>
+              </div>
+              <!-- Font Size -->
+              <div
+                class="flex flex-col gap-6 p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+                <div class="flex items-center justify-between">
+                  <div class="flex flex-col gap-1">
+                    <p class="font-bold">Font Size</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Adjust the interface text size</p>
+                  </div>
+                  <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-semibold">16px</span>
+                </div>
+                <div class="relative w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full">
+                  <input type="range" id="font-size-slider" min="12" max="24" step="1"
+                    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                  <div id="font-size-progress" class="h-full bg-zinc-500 dark:bg-zinc-400 rounded-full"
+                    style="width: 40%"></div>
+                  <div id="font-size-handle"
+                    class="absolute top-1/2 left-[40%] -translate-y-1/2 -translate-x-1/2 w-5 h-5 bg-white border-2 border-zinc-500 dark:border-zinc-400 rounded-full shadow-lg pointer-events-none">
+                  </div>
+                </div>
+                <div class="flex justify-between text-[10px] uppercase font-bold text-slate-400">
+                  <span>Small</span>
+                  <span>Default</span>
+                  <span>Large</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Security Section -->
+          <section class="flex flex-col gap-4">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <span class="material-symbols-outlined text-zinc-400">security</span>
+              Security
+            </h2>
+            <div class="grid gap-4">
+              <!-- Two-Factor Authentication -->
+              <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+                    <span class="material-symbols-outlined">verified_user</span>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <p class="font-bold">Two-Factor Authentication</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Add an extra layer of security to your account
+                    </p>
+                  </div>
+                </div>
+                <button id="btn-enable-2fa"
+                  class="px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-bold rounded-lg hover:brightness-110 transition-colors">
+                  Enable
+                </button>
+              </div>
+              <!-- Password Change -->
+              <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">
+                    <span class="material-symbols-outlined">lock</span>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <p class="font-bold">Password</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Last changed 3 months ago</p>
+                  </div>
+                </div>
+                <button id="btn-change-password"
+                  class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                  Change Password
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Footer Actions -->
+          <div class="flex items-center justify-end gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <button id="btn-discard-changes"
+              class="px-6 py-2.5 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100">
+              Discard Changes
+            </button>
+            <button id="btn-save-preferences"
+              class="px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-bold rounded-lg hover:brightness-110 transition-colors">
+              Save Preferences
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="Config.js"></script>
+  <script src="../shared.js"></script>
+</body>
+
+</html>

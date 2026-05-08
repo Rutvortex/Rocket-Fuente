@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Vortex - Short Videos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffffff", // Overriding primary to white for grayscale theme
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#0a0a0a",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- Top Navigation Bar -->
+        <header
+            class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-4 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-50">
+            <div class="flex items-center gap-12">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl">play_circle</span>
+                    <h1 class="text-xl font-bold tracking-tight">Vortex Studio</h1>
+                </div>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-slate-900 dark:text-slate-100 text-sm font-semibold border-b-2 border-slate-900 dark:border-slate-100 pb-1"
+                        href="#">Shorts</a>
+                    <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                        href="#">Explore</a>
+                    <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-slate-900 dark:hover:text-slate-100 transition-colors flex items-center gap-1"
+                        href="#">
+                        Live <span class="size-1.5 rounded-full bg-slate-400"></span>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative hidden sm:block">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+                    <input id="search-short-player"
+                        class="bg-slate-100 dark:bg-slate-900 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-slate-400 w-64 transition-all"
+                        placeholder="Search content..." type="text" />
+                </div>
+                <button id="btn-profile-short-player"
+                    class="flex items-center justify-center size-10 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                    <span class="material-symbols-outlined">person</span>
+                </button>
+            </div>
+        </header>
+        <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-8">
+            <!-- Section: Shorts (Vertical Feed) -->
+            <section class="mb-12">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined">bolt</span>
+                        <h2 class="text-lg font-bold">Trending Shorts</h2>
+                    </div>
+                    <button id="btn-view-all-trending"
+                        class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 transition-colors">View
+                        All</button>
+                </div>
+                <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4">
+                    <!-- Short Item -->
+                    <div class="flex-none w-56 group cursor-pointer">
+                        <div
+                            class="relative aspect-[9/16] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-3">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                data-alt="Abstract black and white architectural detail"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7sI3rTZe2pYaBDMN_9-kRmllL3aTVhyC0DqlCkCYWkkOxfhd6bhSz2VZ3Q1NkIzXyKtHWt8rkGnvzfVmN21P_FSA3fpf1RWeGRpNpWx4M_VkBZ1gxk7dTNa7jK8CsmhU1NHwiWtclTPg_GaVzk3C0srUcQ_sFfNpS3e2hKmKEI1FmtYbhJtO4ZT-LBziixQHzezll2__gr_gW-6ASTLgFVcPE8AZgyy7MefcOc73wb_gQ1r6DUSVTt6cNMyBugs7PsgKweCfCBqk')">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                                <div class="flex items-center gap-1 text-white">
+                                    <span class="material-symbols-outlined text-sm fill-1">star</span>
+                                    <span class="text-xs font-bold">4.9k</span>
+                                </div>
+                                <span class="text-[10px] text-slate-300 font-medium">12k views</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-sm line-clamp-1">Minimalist Studio Setup</h3>
+                        <p class="text-xs text-slate-500 mt-1">@alexrivers</p>
+                    </div>
+                    <div class="flex-none w-56 group cursor-pointer">
+                        <div
+                            class="relative aspect-[9/16] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-3">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                data-alt="B&amp;W minimal lamp aesthetic"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8LrcaXzx1oFL7h-adWE-A_RZYnTo160E6xXjLZA0UXaNG4V2pyYYLHTaLTNrt0QTQRFsKhbGQnvRpCX_Jjbs0yJLGPblhy25BazoPL5mCwVfpmmq_ZB54PyHbP7UEjsejpKcWMhEb0aDElovRejr2e2LpzcJ_UX17h-tuSueMxfC08E62IIzMN7xRh5nudVM2ke42PghSqRjlNbjHG3gN0trT6_LMnKbZevdyQjV9VGFo1YsCOHSsLfzmpldv6E20eActGRT7wwU')">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                                <div class="flex items-center gap-1 text-white">
+                                    <span class="material-symbols-outlined text-sm fill-1">star</span>
+                                    <span class="text-xs font-bold">2.1k</span>
+                                </div>
+                                <span class="text-[10px] text-slate-300 font-medium">8.4k views</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-sm line-clamp-1">Morning Light Study</h3>
+                        <p class="text-xs text-slate-500 mt-1">@lunar_design</p>
+                    </div>
+                    <div class="flex-none w-56 group cursor-pointer">
+                        <div
+                            class="relative aspect-[9/16] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-3">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                data-alt="Monochrome coffee brewing process"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjcSE11WMGdgU3JtK3oWRCoFCkUEcljUBE8f-H5htts5ad9aPIiwi_ecDzXtUI42cvSDpqCgczEeQ5zVvDS-uJiGd-L2KQUIWXnLq8Kf2Syo7CcO0UjBFlsUMie5QBQ3V4u_fUI1WOWwgNeCSYgoHK8nQeyyFZxkdhBriBVNE4HUegTxfC3zlP2SlTLlHWQefbZn_R8ZTTFRG0SvmcTUXPAOWt8iIJFjmnwzi5rG58FYqJz7gnm5HCLNz0ftK7ZipgpyRAn4SDvto')">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                                <div class="flex items-center gap-1 text-white">
+                                    <span class="material-symbols-outlined text-sm fill-1">star</span>
+                                    <span class="text-xs font-bold">11k</span>
+                                </div>
+                                <span class="text-[10px] text-slate-300 font-medium">45k views</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-sm line-clamp-1">Coffee Rituals</h3>
+                        <p class="text-xs text-slate-500 mt-1">@slow_living</p>
+                    </div>
+                    <div class="flex-none w-56 group cursor-pointer">
+                        <div
+                            class="relative aspect-[9/16] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-3">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                data-alt="Black and white geometric patterns"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAK2Cq0hQVW3gYI3abjVn6eCSRm5F3Cyk_gHLl00D6Xahub8aHtlvhqs5tc4S13TN17fd2ujZbtI6rIittdBz-cxvMTsyxpcZ1t7_OSFJvxQhTzDnK4KI4DC0gA4exPqOh629uWd66wn-OKa1u9GL7kkF-GS1g6XHRSfYzzDpURgWjaZRn16C4qYkMfkI64p1BAiYtrizssgUPiMXnlvZCN8S2lIRQnJ6Li0aw0LhB_FUZEmP61Gt-YOVHysma_qLxLuGZEm9X9J8')">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                                <div class="flex items-center gap-1 text-white">
+                                    <span class="material-symbols-outlined text-sm fill-1">star</span>
+                                    <span class="text-xs font-bold">542</span>
+                                </div>
+                                <span class="text-[10px] text-slate-300 font-medium">1.2k views</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-sm line-clamp-1">Geometric Flow</h3>
+                        <p class="text-xs text-slate-500 mt-1">@pattern_lab</p>
+                    </div>
+                    <div class="flex-none w-56 group cursor-pointer">
+                        <div
+                            class="relative aspect-[9/16] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-3">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                data-alt="High contrast mountain landscape"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTdZaRkXUELN_NbsYas9aAwV9uIN1IYmZ4pMexmMFxynfm8o7HiUmtGchYVRLL-HOTjWPu1yktDotzJoDso-1HNxq_qlL5NoUcvsfZ5gluKZZimf4rdkP0rGLwxqbZXW0oeO4pNbvheYc_ZJ_xl6dhvp6A1hPqhJPEWkFZjVoyS5SXfc5lyLjxdIfLcsfhsugHUpoMc3Xj6spiTWGQSUYRFP41xgWWAITnHeVaTcI7DTN9Wjo3kijD7DYce5Ex-9GuumHV5H_PX0Q')">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                                <div class="flex items-center gap-1 text-white">
+                                    <span class="material-symbols-outlined text-sm fill-1">star</span>
+                                    <span class="text-xs font-bold">8.3k</span>
+                                </div>
+                                <span class="text-[10px] text-slate-300 font-medium">19k views</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-sm line-clamp-1">Mountain Peak Silence</h3>
+                        <p class="text-xs text-slate-500 mt-1">@nature_mono</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Main Layout Split -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Explore Section (Long Form) -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined">explore</span>
+                            <h2 class="text-lg font-bold">Explore Long-form</h2>
+                        </div>
+                        <div class="flex gap-2">
+                            <button id="btn-filter-recommended"
+                                class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900">Recommended</button>
+                            <button id="btn-filter-new"
+                                class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400">New</button>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <!-- Long Video Card -->
+                        <div class="group cursor-pointer">
+                            <div
+                                class="relative aspect-video rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4">
+                                <div class="absolute inset-0 bg-cover bg-center"
+                                    data-alt="Modern concrete architecture in b&amp;w"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDB8KudKHI-vJ-HhV2K2T6ApmxsWAUqcGK-3izz_ZLdH5qsv_9_Mn2axMoSyg2HFmqN1YoBg8o58xIcw8QQnr9x2kBLF9hWVkAjrpGhPH9XNX8t0nAVkyNh648Z-nqMcBO8BFwT1hzeQ7TR9SG1YIm-57c3xpMXX4E0dAMcYNrwb0aw8JyF2Log9BiR-n9KIeEx7kU2VpWweYjNXHpqhV1pWMU2DGgU1wFaEwGjHhRfZ3CX4Olhhs9YvIWXAs3V7JwVMvlgJxd8c0w')">
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors">
+                                </div>
+                                <div
+                                    class="absolute bottom-4 right-4 bg-black/80 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
+                                    12:45</div>
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="material-symbols-outlined text-white text-6xl">play_circle</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="size-10 rounded-full bg-slate-200 dark:bg-slate-800 shrink-0 overflow-hidden">
+                                    <div class="w-full h-full bg-cover bg-center"
+                                        data-alt="User profile portrait in grayscale"
+                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCouaAp2t7jWpJRhsEpvcCPFP3moICMXR3V1qgbAvmLa9ifkjpruGALdvXI-UU7e4XHwXcP4l1B-zmlmouHXseydk8s_LuShG623mkWO8rBzF1t0tHmqCX3VNdzCCWvBcUeckGbm9dXu14NULYkdQiVdSSchYjboPAtQB3oM5XkLNUX9AppGP-meOf3Tg6QlWXflphmqfgM77m8oT4ofEeNTTW3e74RsQ9z_XmMnq3L6zCxtyY0eIQezj3HtaDE30_zo6b8QKYMPQI')">
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="font-bold text-base leading-tight">The Brutalist Movement: A
+                                            Comprehensive Study of Modern Concrete Architecture</h3>
+                                        <div class="flex items-center gap-1 text-slate-400">
+                                            <span class="material-symbols-outlined text-sm">star</span>
+                                            <span class="text-xs font-medium">4.8</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-slate-500 mt-1">Architecture Digest • 1.2M views • 2 days ago
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div
+                                class="relative aspect-video rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4">
+                                <div class="absolute inset-0 bg-cover bg-center"
+                                    data-alt="Minimalist desk setup top view"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBK9WAv_eSe6MjPhC_H_2FszfDqiUzksaH5uBpGhTrXNI5uIRhjbJLATCJbJnmu2D7tcjevHs3SOcUqmC7PVAMprPZSjCvZ-JiPpplvZYtPP_LRzNkF-QFW6i9_H8LrUKcRSMjpCP-6IAz06lvDFawD15itGTyDyFl5I81yBvPSCt8IRICTLTw6JkQYH5xri127WQTdU6ZSjwDurFaRc138ndJrnoLsJh_aNNTJXtpHSoNjmADsQWAXx-fqJSoHbf4UFKZl0mnT23c')">
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors">
+                                </div>
+                                <div
+                                    class="absolute bottom-4 right-4 bg-black/80 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
+                                    08:20</div>
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="material-symbols-outlined text-white text-6xl">play_circle</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="size-10 rounded-full bg-slate-200 dark:bg-slate-800 shrink-0 overflow-hidden">
+                                    <div class="w-full h-full bg-cover bg-center"
+                                        data-alt="User profile portrait in grayscale"
+                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1-jZnWVfxKD3VXdJA8Li97DhUllTuhD6oACQlJgXl7A3HI5iZJICuVIdmB8z_yOYS_3Q367ma8e7k0I-uGJO1fq0wyNp1bq3EME0wJ9IhnNJbpFItA9qoV2MejGIPNwGBlwwJdJc5g7OvFLdm1XOg_4XtAOr5khU0AZ4hxFhdaAPdlJnCOEuekllnOrO9jrNZvxErr7v3XctI_8zLGiHJwr-CA4JPafpt9km3NKmvGM1Ra_sswnniBcrqaFQdbymA0ZbkB7LMXDk')">
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="font-bold text-base leading-tight">Digital Minimalism: How to Reclaim
+                                            Your Focus in 2024</h3>
+                                        <div class="flex items-center gap-1 text-slate-400">
+                                            <span class="material-symbols-outlined text-sm">star</span>
+                                            <span class="text-xs font-medium">4.9</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-slate-500 mt-1">Focus Flow • 850k views • 1 week ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Live Section -->
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-slate-900 dark:text-slate-100">sensors</span>
+                            <h2 class="text-lg font-bold">Active Live</h2>
+                        </div>
+                    </div>
+                    <!-- Live Stream Cards -->
+                    <div class="space-y-4">
+                        <div
+                            class="p-3 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer group">
+                            <div
+                                class="relative rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-video mb-3">
+                                <div class="absolute inset-0 bg-cover bg-center"
+                                    data-alt="B&amp;W concert or event stream"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKkmhqNiWLRIYFHe7DbmEPuJla1fpFueuyDLxhacxULSXrCxgixIFpDuYI47v6d4-u_BzOKBEJMvxqUuV8Hy48o6zbKYp1l1Ewr_VISuLqaM6O4SJHfVxhA9N340q61StNobI8-5oETKJ8Rbz54PdOiJ7Nlek4Ho05NyT9UeSy1WmdZaKPqjNikvIqfZDHzCg8PK5qWM37CmJ0U9T47zv7ZCDba9bF_bPo3yPNKjxVGNuMAF1b5ck0pCOMlYuVb14q6AJeDJWR2Xg')">
+                                </div>
+                                <div
+                                    class="absolute top-2 left-2 px-2 py-0.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-[10px] font-bold rounded flex items-center gap-1 uppercase tracking-tighter">
+                                    <span class="size-1.5 rounded-full bg-white dark:bg-slate-900"></span> Live
+                                </div>
+                                <div
+                                    class="absolute bottom-2 left-2 text-[10px] text-white bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded font-medium">
+                                    4.2k watching
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-sm">Late Night Ambient Jazz Session</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <p class="text-xs text-slate-500">@mono_records</p>
+                                <div class="flex items-center gap-1 text-slate-400">
+                                    <span class="material-symbols-outlined text-xs fill-1">star</span>
+                                    <span class="text-[10px] font-bold">12.8k</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-3 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer group">
+                            <div
+                                class="relative rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-video mb-3">
+                                <div class="absolute inset-0 bg-cover bg-center"
+                                    data-alt="Monochrome coding or digital work"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA92eyXlez0LR4lM5lpQX1O4MZL70iweyFt2oR2Sp4qYJINX1wKsuZi0vd0PvJOvu559lopUDmmk2Iy-lVMRgwfop_7-nwoW3LxBcqhPv1Qz3N1ufEVCLl93FInYTFov3aP8BG5H_NIYQMu8eF8XjMN1yb9QI7Yep-z8wl7y9Q4o9NudtqYXZm9WUwG7QdkhQnBGeBCiAqmbJ-UpFsJdo7WXFRLkSZaXPo8D-sj71nMkVypdRYGq6mKo5zLu4Txk5rsM0fVcU_K70o')">
+                                </div>
+                                <div
+                                    class="absolute top-2 left-2 px-2 py-0.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-[10px] font-bold rounded flex items-center gap-1 uppercase tracking-tighter">
+                                    <span class="size-1.5 rounded-full bg-white dark:bg-slate-900"></span> Live
+                                </div>
+                                <div
+                                    class="absolute bottom-2 left-2 text-[10px] text-white bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded font-medium">
+                                    842 watching
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-sm">Building a CSS Design System</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <p class="text-xs text-slate-500">@code_minimal</p>
+                                <div class="flex items-center gap-1 text-slate-400">
+                                    <span class="material-symbols-outlined text-xs fill-1">star</span>
+                                    <span class="text-[10px] font-bold">3.1k</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-3 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer group">
+                            <div
+                                class="relative rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-video mb-3">
+                                <div class="absolute inset-0 bg-cover bg-center" data-alt="Crowd gathered in b&amp;w"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtLhQjNWcJem5o_D6iM6vxiifU3O7eYn-H0gRNvg_8vuXfX9Hv2O3F3UaZn2vJ2sGmiUNAJkOinOPNUawfuxhFkQjDjlzE_ffsmfsLz0MRTq8pDll-0r0OazIogbmncyMYtYNmGpqFVll-htwEj5xmntUJSnG9CvwjroX8RtxoRHfVqhF65yG8FgdhtD6VGBScsb8CMAzJzjwAHH-tqbJWaKog58Y-WLkwsXZJaOulFXl2R8_FN-VlLzoxozI7bTdNXZEZgVkzaAM')">
+                                </div>
+                                <div
+                                    class="absolute top-2 left-2 px-2 py-0.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-[10px] font-bold rounded flex items-center gap-1 uppercase tracking-tighter">
+                                    <span class="size-1.5 rounded-full bg-white dark:bg-slate-900"></span> Live
+                                </div>
+                                <div
+                                    class="absolute bottom-2 left-2 text-[10px] text-white bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded font-medium">
+                                    15.6k watching
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-sm">Global Street Photography Award</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <p class="text-xs text-slate-500">@world_photo</p>
+                                <div class="flex items-center gap-1 text-slate-400">
+                                    <span class="material-symbols-outlined text-xs fill-1">star</span>
+                                    <span class="text-[10px] font-bold">45k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="btn-show-more-streams"
+                        class="w-full py-4 border border-dashed border-slate-300 dark:border-slate-700 rounded-xl text-slate-400 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-900 transition-all">
+                        Show More Streams
+                    </button>
+                </div>
+            </div>
+        </main>
+        <!-- Mobile Navigation Bar -->
+        <div
+            class="md:hidden fixed bottom-0 left-0 right-0 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center z-50">
+            <button class="flex flex-col items-center gap-1 text-slate-900 dark:text-slate-100">
+                <span class="material-symbols-outlined">bolt</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Shorts</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-slate-400">
+                <span class="material-symbols-outlined">explore</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Explore</span>
+            </button>
+            <div
+                class="size-10 rounded-full bg-slate-900 dark:bg-slate-100 flex items-center justify-center -mt-8 shadow-xl">
+                <span class="material-symbols-outlined text-white dark:text-slate-900">add</span>
+            </div>
+            <button class="flex flex-col items-center gap-1 text-slate-400">
+                <span class="material-symbols-outlined">sensors</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Live</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 text-slate-400">
+                <span class="material-symbols-outlined">person</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Me</span>
+            </button>
+        </div>
+    </div>
+    <script src="../VideoPlayer.js"></script>
+    <script src="../shared.js"></script>
+</body>
+
+</html>

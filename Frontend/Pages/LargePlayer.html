@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Long-form Video Player - VORTEX STUDIO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#64748b",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }</script>
+    <style>
+        body {
+            font-family: "Spline Sans", sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        body {
+            filter: grayscale(100%);
+        }
+
+        .star-rating {
+            filter: grayscale(0%) !important;
+            color: #ffffff !important;
+        }
+
+        .dark .star-rating {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- Header -->
+        <header
+            class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-3 sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50">
+            <div class="flex items-center gap-8">
+                <a href="MainHub.html" class="flex items-center gap-2 text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined text-3xl">architecture</span>
+                    <h2 class="text-lg font-bold leading-tight tracking-tight uppercase">VORTEX STUDIO</h2>
+                </a>
+                <div class="hidden md:flex flex-col min-w-80">
+                    <div
+                        class="flex w-full items-stretch rounded-lg h-10 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center justify-center pl-3 text-slate-400">
+                            <span class="material-symbols-outlined text-xl">search</span>
+                        </div>
+                        <input id="search-large-player" class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-500"
+                            placeholder="Search architectural studies..." type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="btn-notifications-large"
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button id="btn-upload-large"
+                    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
+                    <span class="material-symbols-outlined">upload</span>
+                </button>
+                <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+                <div
+                    class="size-9 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-slate-300 dark:border-slate-600">
+                    <img class="w-full h-full object-cover grayscale" data-alt="User profile avatar"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHEJu3WeBnk2UyS-kiKY_sB1Fd7jEkRKCZUUV9JyuHBQ4mQms7A1ah2Sq3hhg41iRaPLMjdpqJzPV5mppnch1PQTyaf5CHLS3SrOGf5b6mr1d2QKevcN7pP9FwB6fsQMM6S1i-fvSAugR-26znKqYPk9HLJQ1cVyb3DM6mfmA_uaqraOhDRJsR7rfW6qCxEp0wgL4fgnYub_Zv-nnLQXiG74uR9bzBEv_2dOZhcNh17JN27-IFk9NQoloC7TOFBv_uxPgLWPFV2F8" />
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 max-w-[1600px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 p-6">
+            <!-- Video Section (Left) -->
+            <div class="lg:col-span-8 flex flex-col gap-6">
+                <!-- Video Player Container -->
+                <div class="relative group aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 flex items-center justify-center bg-slate-900/10">
+                        <img class="w-full h-full object-cover grayscale opacity-80"
+                            data-alt="Grayscale architectural brutalist building close up"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDopWyau8pO1SYML4B1fZu_54CrGFd8QBTl6Ny3w_ZDGCJP_cvmaM6kelNHd5t__-TVWxA5VXa9ZhifDNJM2u5jUaV-kwEAafZXsMdxIaSpJuPAhgGHZPFIDmOgEYpIbR_YBw0zfW_g0ah0BBpzQtay9nb59qkXkhrSuTueDKriHFyr9Oy5gc8T-NiQdzrL0Ghk-wp5iCQkyeJiKR6H0-LMS1V0A62WxXs3hlpkdDrXh2F8HL50dqViqt6uHd9RmZIVdwFNoFXTTqA" />
+                        <button id="btn-central-play-large"
+                            class="absolute size-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:scale-110 transition-transform">
+                            <span
+                                class="material-symbols-outlined text-5xl fill-icon text-slate-900 dark:text-white">play_arrow</span>
+                        </button>
+                    </div>
+                    <!-- Player Controls (Overlay) -->
+                    <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent pt-20">
+                        <div class="flex flex-col gap-3">
+                            <!-- Progress Bar -->
+                             <div id="progress-bar-large" class="relative h-1.5 w-full bg-white/20 rounded-full cursor-pointer group/progress">
+                                <div class="absolute h-full bg-white rounded-full w-[45%]"></div>
+                                <div
+                                    class="absolute size-3 bg-white rounded-full -top-[3px] left-[45%] opacity-0 group-hover/progress:opacity-100 shadow-lg">
+                                </div>
+                            </div>
+                            <!-- Control Buttons -->
+                            <div class="flex items-center justify-between text-white">
+                                <div class="flex items-center gap-6">
+                                    <span id="btn-play-pause-large"
+                                        class="material-symbols-outlined cursor-pointer hover:text-slate-300">play_arrow</span>
+                                    <span id="btn-next-large"
+                                        class="material-symbols-outlined cursor-pointer hover:text-slate-300">skip_next</span>
+                                    <div class="flex items-center gap-2 group/vol">
+                                        <span id="btn-volume-large"
+                                            class="material-symbols-outlined cursor-pointer hover:text-slate-300">volume_up</span>
+                                        <div id="volume-bar-large" class="w-16 h-1 bg-white/30 rounded-full overflow-hidden">
+                                            <div class="w-3/4 h-full bg-white"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-medium tabular-nums">12:45 / 28:00</span>
+                                </div>
+                                <div class="flex items-center gap-6">
+                                    <span id="btn-settings-large"
+                                        class="material-symbols-outlined cursor-pointer hover:text-slate-300">settings</span>
+                                    <span id="btn-pip-large"
+                                        class="material-symbols-outlined cursor-pointer hover:text-slate-300">branding_watermark</span>
+                                    <span id="btn-fullscreen-large"
+                                        class="material-symbols-outlined cursor-pointer hover:text-slate-300">fullscreen</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video Metadata -->
+                <div class="flex flex-col gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+                    <h1 class="text-2xl font-bold tracking-tight">The Brutalist Movement: A Comprehensive Study</h1>
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center gap-4 text-sm text-slate-500">
+                            <span>1.2M views</span>
+                            <span class="size-1 rounded-full bg-slate-400"></span>
+                            <span>Oct 24, 2023</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                             <div id="btn-rate-large"
+                                class="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 cursor-pointer">
+                                <span
+                                    class="material-symbols-outlined text-lg fill-icon text-slate-900 dark:text-white">star</span>
+                                <span class="text-sm font-bold">4.8</span>
+                                <span class="text-slate-400 text-xs">(1.2k)</span>
+                            </div>
+                             <button id="btn-share-large"
+                                class="flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-1.5 rounded-lg transition-colors">
+                                <span class="material-symbols-outlined text-xl">share</span>
+                                <span class="text-sm font-medium">Share</span>
+                            </button>
+                             <button id="btn-save-large"
+                                class="flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-1.5 rounded-lg transition-colors">
+                                <span class="material-symbols-outlined text-xl">playlist_add</span>
+                                <span class="text-sm font-medium">Save</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Creator & Description -->
+                <div
+                    class="bg-slate-50 dark:bg-slate-800/40 rounded-xl p-5 border border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-12 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-200">
+                                <img class="w-full h-full object-cover grayscale" data-alt="Creator profile picture"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf6NstjgXBSq8dr7Wa_h4wajJ0BtFT0z3b46JqBEApRsFwpzAifcI0OQthDJOC_mRdrKFXC8umaFXJGKIArf2Nw8zWvfHQI3qQmEYxE3AZ71LVB8kLWCMOyp3ZzlHtAlWTPiRuTf-9XDVyzMXaNGGwSBX3CT59Dow14zVtyhyxUPCldAecESFXWL-8SmRQEKZTwthJ6bzEjiPHblgCzX6Q_vsviCRN8f2AeqKL6fT16LVP1kH9tq0bw4BSvLggscFdT3xOjIhi9Kg" />
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">Concrete Aesthetics</h3>
+                                <p class="text-xs text-slate-500">450K followers</p>
+                            </div>
+                        </div>
+                         <button id="btn-follow-creator-large"
+                            class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">Follow</button>
+                    </div>
+                    <div class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        <p class="mb-2">Exploring the raw, honest power of Brutalist architecture. In this episode, we
+                            dive deep into the philosophy behind monumental concrete structures and their cultural
+                            significance in the mid-20th century.</p>
+                        <p class="hidden sm:block">We visit the Barbican Estate, the National Theatre, and lesser-known
+                            gems across Eastern Europe to understand how these 'monsters' of architecture were designed
+                            to be social utopias...</p>
+                        <button class="mt-2 text-slate-900 dark:text-slate-100 font-bold hover:underline">Show
+                            more</button>
+                    </div>
+                </div>
+                <!-- Comments Section -->
+                <div class="flex flex-col gap-6 mt-4">
+                    <div class="flex items-center gap-4">
+                        <h3 class="font-bold text-lg">2,482 Comments</h3>
+                        <div class="flex items-center gap-2 text-sm text-slate-500 cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">sort</span>
+                            <span>Sort by</span>
+                        </div>
+                    </div>
+                    <!-- Add Comment -->
+                    <div class="flex gap-4">
+                        <div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 shrink-0"></div>
+                        <div class="flex-1 flex flex-col gap-2">
+                             <textarea id="comment-textarea-large"
+                                class="w-full bg-transparent border-b border-slate-300 dark:border-slate-700 focus:border-slate-900 dark:focus:border-slate-100 border-x-0 border-t-0 ring-0 focus:ring-0 px-0 py-2 resize-none text-sm placeholder:text-slate-500"
+                                placeholder="Add a comment..."></textarea>
+                            <div class="flex justify-end gap-3">
+                                 <button id="btn-cancel-comment-large"
+                                    class="px-4 py-2 text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-slate-100">Cancel</button>
+                                <button id="btn-post-comment-large"
+                                    class="px-4 py-2 text-sm font-bold bg-slate-200 dark:bg-slate-700 rounded-lg opacity-50 cursor-not-allowed">Comment</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Comment List -->
+                    <div class="flex flex-col gap-8">
+                        <!-- Comment 1 -->
+                        <div class="flex gap-4">
+                            <div class="size-10 rounded-full overflow-hidden bg-slate-200">
+                                <img class="w-full h-full object-cover grayscale" data-alt="Commenter avatar"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf3wR0EQZcK2YcHqQrSOIvaGw-4bwH4x5kM4qwKNbQPcVIwMALvwewP0AP00WK2gvHMiPi9i0peTE7Msx6ATMG8oq_Bg5ZxFg-W0eSULZWINoXSPSOCYI7-Tuij22_SssMNEdsTVkBnnMsXD-ktJ4Mw_rhNeTLL242cxN1nid14BhAoER0RdQk2YaszSR0VKIl3Ha4L0xabO7THPgZoOOf9XVez3yu5JrMNNG-wFYYaWh5tYrgwnUTV7UovL5iduIk0ze7p8Ydvsw" />
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold">Elena Vance</span>
+                                    <span class="text-xs text-slate-500">2 days ago</span>
+                                </div>
+                                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">The cinematography
+                                    in this study is as brutal as the architecture itself. Absolutely stunning visuals.
+                                </p>
+                                <div class="flex items-center gap-4 mt-1">
+                                    <div class="flex items-center gap-1 text-slate-400">
+                                        <span
+                                            class="material-symbols-outlined text-base fill-icon text-slate-900 dark:text-white">star</span>
+                                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">5.0</span>
+                                    </div>
+                                    <button
+                                        class="text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-slate-100">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Comment 2 -->
+                        <div class="flex gap-4">
+                            <div class="size-10 rounded-full overflow-hidden bg-slate-200">
+                                <img class="w-full h-full object-cover grayscale" data-alt="Commenter avatar"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6aPrW2PX35TZ99o4niNiSmoJldl4lxp1mV7zG21M72ME8vmm9aXJEgga2-Ekgu8bfyFmYvfo3Am-u7ZQEUL3o6Zkn-AqDuWRXoAhaAp3GTBdLD1xLlLn2cGc18w1uuytTdN0iCYnS9bi4bhiNqQJOEV7fht4x1PwEPIx1ucWAA5JwLmV3kR0OFqYraSDzKPtLkDXgAoXQ2hRfHITazC8XORSKT9bnA2of-NroC50QLDH0acryt6LkOZc8tMCOAeMmwZaEk7LhYOg" />
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold">Marcus Thorne</span>
+                                    <span class="text-xs text-slate-500">5 days ago</span>
+                                </div>
+                                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">As a student of
+                                    architecture, I find your breakdown of Le Corbusier's influence very insightful.
+                                    Would love to see a part 2 on Japanese Brutalism.</p>
+                                <div class="flex items-center gap-4 mt-1">
+                                    <div class="flex items-center gap-1 text-slate-400">
+                                        <span
+                                            class="material-symbols-outlined text-base fill-icon text-slate-900 dark:text-white">star</span>
+                                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300">4.5</span>
+                                    </div>
+                                    <button
+                                        class="text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-slate-100">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar (Right) -->
+            <div class="lg:col-span-4 flex flex-col gap-4">
+                <div class="flex items-center justify-between mb-2">
+                    <h2 class="font-bold">Up Next</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Autoplay</span>
+                        <div class="w-8 h-4 bg-slate-900 dark:bg-slate-100 rounded-full relative">
+                            <div class="absolute right-0.5 top-0.5 size-3 bg-white dark:bg-slate-900 rounded-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Suggested Videos List -->
+                <div class="flex flex-col gap-4">
+                    <!-- Suggestion 1 -->
+                    <div class="flex gap-3 group cursor-pointer">
+                        <div class="relative w-40 aspect-video rounded-lg overflow-hidden shrink-0">
+                            <img class="w-full h-full object-cover grayscale" data-alt="Minimalist modern building"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWEQAYXZfoc7PHfTMyheEqUShHYMdUQ2ZWg-E7NB8MZmM3_pnCwypBgyPpoIGIiAurcrfkVyDrpVvWOsVWCjIiw8OxaIz5qnPZruolJaFCORAmX4yP7kGY2djXl5kSmDDWH7yLfv610mt8g8cGcvRvnjWMOixgq3dCcVjGxn2rsKF0GUyrvN0T9Be4CG0qkajWYtQFwqPtORGkZv0W21Ve_t6dKMjIkOMLfgaUH5L_4cFNF6lEhmsyhcBXQ1fy3erA4m-ILjaaD0g" />
+                            <span
+                                class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">14:22</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4
+                                class="text-sm font-bold line-clamp-2 leading-tight group-hover:text-slate-600 dark:group-hover:text-slate-300">
+                                The Rise of Minimalist Megastructures</h4>
+                            <p class="text-xs text-slate-500">Concrete Aesthetics</p>
+                            <p class="text-[10px] text-slate-400">890K views • 2 months ago</p>
+                        </div>
+                    </div>
+                    <!-- Suggestion 2 -->
+                    <div class="flex gap-3 group cursor-pointer">
+                        <div class="relative w-40 aspect-video rounded-lg overflow-hidden shrink-0">
+                            <img class="w-full h-full object-cover grayscale"
+                                data-alt="Modernist glass and concrete house"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAivRWpdzzZ9i_dEG9OA10EJMtqyBSc_bibITkhZMY5dBAzG52TuHDHUXFcPsf-4YyKsHeKHgcDCyELqxbX71_OL09_OodmeT_PjrxNhOxEN_DkHfjd9vUzaHlvyFUARWRhNjfPzK7nXxaQJT_U7yyDPiy5aMxBFS8dyo-5wiBsFsmUh6ZI2qK_NDzusEcA_8_5zpseA9G_495AtVZd26fcVeYaYaSYzcaID0jMr-rFlb42V1mtwycgtG5sAE1IGna6jjzGWikzwNA" />
+                            <span
+                                class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">21:05</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4
+                                class="text-sm font-bold line-clamp-2 leading-tight group-hover:text-slate-600 dark:group-hover:text-slate-300">
+                                Bauhaus Influence on Modern Living</h4>
+                            <p class="text-xs text-slate-500">Design History</p>
+                            <p class="text-[10px] text-slate-400">1.5M views • 6 months ago</p>
+                        </div>
+                    </div>
+                    <!-- Suggestion 3 -->
+                    <div class="flex gap-3 group cursor-pointer">
+                        <div class="relative w-40 aspect-video rounded-lg overflow-hidden shrink-0">
+                            <img class="w-full h-full object-cover grayscale" data-alt="Abstract concrete interior"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt4VL6PpCYqFbw8HOgq6JLQr1i9RRQdBlZQ2k5tPupKr1bxeaoeGS9nuK9jo8YquoY7rU0dcKJ6Nj0fGlb5lAEkzsc88qxhWh_3mAqGxxQLNH2sz64RA2k7Muw7vhuthrb2iBPXwC77ERtXe0bWO4FrpWWKAZbvtpraKXiKFrOmLTnStrUXrhPfbbnLihX3cfEJAXFkaTnYSpBWZkdrAy_JFX_lQjl4T1X-oiyA-KcjYYqqv8MmlOSIlfbrUJhlQzjWssc3r_ndj8" />
+                            <span
+                                class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">10:48</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4
+                                class="text-sm font-bold line-clamp-2 leading-tight group-hover:text-slate-600 dark:group-hover:text-slate-300">
+                                Why Concrete is the Future of Sustainable Cities</h4>
+                            <p class="text-xs text-slate-500">Urban Future</p>
+                            <p class="text-[10px] text-slate-400">230K views • 1 week ago</p>
+                        </div>
+                    </div>
+                    <!-- Suggestion 4 -->
+                    <div class="flex gap-3 group cursor-pointer">
+                        <div class="relative w-40 aspect-video rounded-lg overflow-hidden shrink-0">
+                            <img class="w-full h-full object-cover grayscale" data-alt="Geometric building shadows"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJz4cqWVgSEW-tXe8Tg-LRdfNnuceT1wjvigMtfYgp06KqqmTycSJGKgwV7zlzrtW1m_FC07NzRjXiGSyAJcgpQmXwWdwyDHVbBsNOLX46wqUqpS4DWYWpKS1CL9aBGrekXHu6bxkpa0QJo5AF6Sar_Jdqj_bjhSd-Ar1uIkAE5mO6L6Zm2lzB22UwZsFjuHC1B1LxK6JyQqBZp_lPfV1FELUfvJX70n-tkwfokEbzBo7qGEo1rB2jrtD5kN_9Ja_hAUmVXGJ66IM" />
+                            <span
+                                class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">32:10</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4
+                                class="text-sm font-bold line-clamp-2 leading-tight group-hover:text-slate-600 dark:group-hover:text-slate-300">
+                                Masterclass: Lighting in Large Spaces</h4>
+                            <p class="text-xs text-slate-500">Concrete Aesthetics</p>
+                            <p class="text-[10px] text-slate-400">412K views • 1 year ago</p>
+                        </div>
+                    </div>
+                    <!-- Suggestion 5 -->
+                    <div class="flex gap-3 group cursor-pointer">
+                        <div class="relative w-40 aspect-video rounded-lg overflow-hidden shrink-0">
+                            <img class="w-full h-full object-cover grayscale" data-alt="Spiral architecture staircase"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzbHqmbqOoNZSMsUZnR0TM-y0RN3LQKX0VZesE3hcub9x4dZxh3ojys594x51tN382ufgECTTy3T-MfmUBx-H06b-oyFe07HWclYn1inHzQANFoit6KQ_4tE67oy7_HvLP45fYGzgoJOCIf-VYohVyZZm6A0_Q-Ldr2QiUxhqILuiinHbQgnXqLHD2avtp5zwHLN6cBhFicxE2V7b4Ed-nHLtuZR6MBPEISsOo34cpcaRGomg05rvbxsC6scAE6xfDhBZ0ZL2UEBA" />
+                            <span
+                                class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">18:55</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4
+                                class="text-sm font-bold line-clamp-2 leading-tight group-hover:text-slate-600 dark:group-hover:text-slate-300">
+                                The Psychology of Vertical Architecture</h4>
+                            <p class="text-xs text-slate-500">Mind &amp; Space</p>
+                            <p class="text-[10px] text-slate-400">75K views • 3 days ago</p>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="mt-4 w-full py-3 rounded-lg border border-slate-200 dark:border-slate-800 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    View more related content
+                </button>
+            </div>
+        </main>
+    </div>
+    <script src="../VideoPlayer.js"></script>
+    <script src="../shared.js"></script>
+</body>
+
+</html>
