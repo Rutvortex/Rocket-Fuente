@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* Custom Stylesheet for Vortex React Frontend */
+
+/* Cohesive Dark Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+html:not(.dark) .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+html:not(.dark) .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Hide Scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Premium Glassmorphic Card Style */
+.glass-panel {
+  background-color: rgba(15, 22, 36, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html:not(.dark) .glass-panel {
+  background-color: rgba(248, 250, 252, 0.8);
+  border-color: rgba(15, 23, 42, 0.2);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background-color: rgba(15, 22, 36, 0.85);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+html:not(.dark) .glass-panel-hover:hover {
+  background-color: rgba(248, 250, 252, 0.95);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
+}
+
+/* Custom Grayscale/Color Palette Overrides */
+.grayscale-img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.grayscale-img:hover {
+  filter: grayscale(0%);
+}
+
+/* Ensure Material Symbols look consistently stunning */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+
+.font-fill {
+  font-variation-settings: 'FILL' 1;
+}

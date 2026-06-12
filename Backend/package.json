@@ -1,0 +1,52 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "Red Social",
+  "keywords": [
+    "Red"
+  ],
+  "homepage": "https://github.com/Rutvortex/Red-Social-Test#readme",
+  "bugs": {
+    "url": "https://github.com/Rutvortex/Red-Social-Test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rutvortex/Red-Social-Test.git"
+  },
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "mkcert": "node scripts/generate-mkcert.js",
+    "update": "npx npm-check-updates -u && npm install && npm run dev"
+  },
+  "dependencies": {
+    "axios": "^1.17.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.7.0",
+    "morgan": "^1.11.0",
+    "multer": "^2.1.1",
+    "sharp": "^0.35.1",
+    "socket.io": "^4.8.3",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.7",
+    "@jest/globals": "^30.4.1",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2",
+    "mongodb-memory-server": "^11.2.0",
+    "nodemon": "^3.1.14",
+    "npm-check-updates": "^22.2.3",
+    "supertest": "^7.2.2"
+  }
+}
