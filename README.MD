@@ -1,4 +1,4 @@
-# Proyecto MERN SocialNet
+# Proyecto MERN Realart
 
 Aplicacion web fullstack de red social desarrollada con el stack MERN. Incluye autenticacion con JWT, publicaciones, comentarios, likes, perfiles, grupos, mensajes directos, subida de medios, logros, recompensas, deteccion de imagenes generadas por IA y salas en vivo con Socket.IO/WebRTC.
 
